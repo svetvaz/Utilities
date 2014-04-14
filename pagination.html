@@ -5,7 +5,7 @@
 	<script>
 	function selectPage(selectedPageIndex)
 	{
-	  	var items = document.getElementById("pagin").getElementsByTagName('li');
+	  	var items = document.getElementById("pages").getElementsByTagName('li');
 	        for(var i=1; i <= items.length; i++)
 	        {
 	           if(i == selectedPageIndex)
@@ -20,8 +20,6 @@
 	        }
 	}
 
-
-
 	function createList(){
 		var page = document.getElementById("pagin");
 		page.innerHTML='<ul><li class="current" onclick="selectPage(1)">1';
@@ -34,7 +32,7 @@
 	</script>
 </head>	
 <body onload="javascript:createList()">
-<div id="pagin">
+<div id="pages">
 
 </div>
 </body>
