@@ -1,107 +1,36 @@
 <html>
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<style type="text/css">
-
-#pagin {
-    clear: both;
-    padding:0;
-    width:250px;
-    margin:0 auto;
-}
-#pagin li {
-    float:left;
-    margin-right:10px;
-}
-#pagin li {
-    display:block;
-    color:#717171;
-    font:bold 11px;
-    text-shadow:0px 1px white;
-    padding:5px 8px;
-    -webkit-border-radius:3px;
-    -moz-border-radius:3px;
-    border-radius:3px;
-    -webkit-box-shadow:0px 1px 3px 0px rgba(0,0,0,0.35);
-    -moz-box-shadow:0px 1px 3px 0px rgba(0,0,0,0.35);
-    box-shadow:0px 1px 3px 0px rgba(0,0,0,0.35);
-    background:#f9f9f9;
-    background:-webkit-linear-gradient(top,#f9f9f9 0%,#e8e8e8 100%);
-    background:-moz-linear-gradient(top,#f9f9f9 0%,#e8e8e8 100%);
-    background:-o-linear-gradient(top,#f9f9f9 0%,#e8e8e8 100%);
-    background:-ms-linear-gradient(top,#f9f9f9 0%,#e8e8e8 100%);
-    background:linear-gradient(top,#f9f9f9 0%,#e8e8e8 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9',endColorstr='#e8e8e8',GradientType=0 );
-}
-#pagin li.current {
-    color:white;
-    text-shadow:0px 1px #3f789f;
-    -webkit-box-shadow:0px 1px 2px 0px rgba(0,0,0,0.8);
-    -moz-box-shadow:0px 1px 2px 0px rgba(0,0,0,0.8);
-    box-shadow:0px 1px 2px 0px rgba(0,0,0,0.8);
-    background:#7cb9e5;
-    background:-webkit-linear-gradient(top,#7cb9e5 0%,#57a1d8 100%);
-    background:-moz-linear-gradient(top,#7cb9e5 0%,#57a1d8 100%);
-    background:-o-linear-gradient(top,#7cb9e5 0%,#57a1d8 100%);
-    background:-ms-linear-gradient(top,#7cb9e5 0%,#57a1d8 100%);
-    background:linear-gradient(top,#7cb9e5 0%,#57a1d8 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#7cb9e5',endColorstr='#57a1d8',GradientType=0 );
-}
-#pagin li:hover {
-    -webkit-box-shadow:0px 1px 3px 0px rgba(0,0,0,0.55);
-    -moz-box-shadow:0px 1px 3px 0px rgba(0,0,0,0.55);
-    box-shadow:0px 1px 3px 0px rgba(0,0,0,0.55);
-    background:#fff;
-    background:-webkit-linear-gradient(top,#fff 0%,#e8e8e8 100%);
-    background:-moz-linear-gradient(top,#fff 0%,#e8e8e8 100%);
-    background:-o-linear-gradient(top,#fff 0%,#e8e8e8 100%);
-    background:-ms-linear-gradient(top,#fff 0%,#e8e8e8 100%);
-    background:linear-gradient(top,#fff 0%,#e8e8e8 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff',endColorstr='#e8e8e8',GradientType=0 );
-}
-
-#pagin li current:hover {
-    -webkit-box-shadow:0px 1px 2px 0px rgba(0,0,0,0.9);
-    -moz-box-shadow:0px 1px 2px 0px rgba(0,0,0,0.9);
-    box-shadow:0px 1px 2px 0px rgba(0,0,0,0.9);
-    background:#99cefc;
-    background:-webkit-linear-gradient(top,#99cefc 0%,#57a1d8 100%);
-    background:-moz-linear-gradient(top,#99cefc 0%,#57a1d8 100%);
-    background:-o-linear-gradient(top,#99cefc 0%,#57a1d8 100%);
-    background:-ms-linear-gradient(top,#99cefc 0%,#57a1d8 100%);
-    background:linear-gradient(top,#99cefc 0%,#57a1d8 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#99cefc',endColorstr='#57a1d8',GradientType=0 );
-}
-	</style>
+	<link rel="stylesheet" type="text/css" href="pagination.less" />
 	<script>
-function selectGroup(selectedGroupIndex)
-{
-  	var items = document.getElementById("pagin").getElementsByTagName('li');
-        for(var i=1; i <= items.length; i++)
-        {
-           if(i == selectedGroupIndex)
-           {
-              items[i-1].className = "current";
-             // selectedGroup = items[i].innerText;
-           }
-            else
-           {
-              items[i-1].className = "notSelected";
-           }
-           
-        }
-}
+	function selectGroup(selectedGroupIndex)
+	{
+	  	var items = document.getElementById("pagin").getElementsByTagName('li');
+	        for(var i=1; i <= items.length; i++)
+	        {
+	           if(i == selectedGroupIndex)
+	           {
+	              items[i-1].className = "current";
+	           }
+	            else
+	           {
+	              items[i-1].className = "notSelected";
+	           }
+	           
+	        }
+	}
 
 
 
- 	 function createList(){
-	 	var page = document.getElementById("pagin");
-	 	page.innerHTML='<ul id="unList"><li class="current" onclick="selectGroup(1)">1';
-	 	for(var i=2;i<5;i++){
-	 		page.innerHTML+='<li onclick="selectGroup('+i+')">'+i+'</li>';
-	 	}
-	 	page.innerHTML=page.innerHTML+'</ul>';
-	 }
+	function createList(){
+		var page = document.getElementById("pagin");
+		page.innerHTML='<ul id="unList"><li class="current" onclick="selectGroup(1)">1';
+		for(var i=2;i<5;i++){
+			page.innerHTML+='<li onclick="selectGroup('+i+')">'+i+'</li>';
+		}
+		page.innerHTML=page.innerHTML+'</ul>';
+	}
+	
 	</script>
 </head>	
 <body onload="javascript:createList()">
