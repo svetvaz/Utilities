@@ -3,18 +3,18 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="pagination.less" />
 	<script>
-	function selectGroup(selectedGroupIndex)
+	function selectPage(selectedPageIndex)
 	{
 	  	var items = document.getElementById("pagin").getElementsByTagName('li');
 	        for(var i=1; i <= items.length; i++)
 	        {
-	           if(i == selectedGroupIndex)
+	           if(i == selectedPageIndex)
 	           {
 	              items[i-1].className = "current";
 	           }
 	            else
 	           {
-	              items[i-1].className = "notSelected";
+	              items[i-1].className = "someRandomClass";
 	           }
 	           
 	        }
@@ -24,13 +24,13 @@
 
 	function createList(){
 		var page = document.getElementById("pagin");
-		page.innerHTML='<ul id="unList"><li class="current" onclick="selectGroup(1)">1';
+		page.innerHTML='<ul><li class="current" onclick="selectPage(1)">1';
 		for(var i=2;i<5;i++){
-			page.innerHTML+='<li onclick="selectGroup('+i+')">'+i+'</li>';
+			page.innerHTML+='<li onclick="selectPage('+i+')">'+i+'</li>';
 		}
 		page.innerHTML=page.innerHTML+'</ul>';
 	}
-	
+
 	</script>
 </head>	
 <body onload="javascript:createList()">
